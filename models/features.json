@@ -1,0 +1,1 @@
+["hour", "day_of_week", "month", "year", "hour_sin", "hour_cos", "dow_sin", "dow_cos", "month_sin", "month_cos", "is_weekend", "is_rush_morning", "is_rush_evening", "is_night", "is_summer", "is_winter", "year_norm"]

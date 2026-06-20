@@ -1,0 +1,237 @@
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+        --mx-accent: #6366f1;
+        --mx-accent2: #8b5cf6;
+        --mx-cyan: #22d3ee;
+        --mx-border: rgba(148, 163, 184, 0.14);
+        --mx-border-hover: rgba(99, 102, 241, 0.55);
+        --mx-card: linear-gradient(160deg, rgba(23, 26, 48, 0.72), rgba(10, 12, 26, 0.85));
+        --mx-text: #e2e8f0;
+        --mx-muted: #7c86a8;
+    }
+
+    /* ── Streamlit kromunu gizle: tamamen özel uygulama hissi ── */
+    /* Not: stToolbar topyekun gizlenmez; sidebar'ı yeniden açma oku orada yaşayabilir */
+    #MainMenu, footer, [data-testid="stDecoration"], [data-testid="stStatusWidget"],
+    [data-testid="stToolbarActions"], .stDeployButton, [data-testid="stMainMenu"] { display: none !important; }
+    header[data-testid="stHeader"] { background: transparent !important; }
+
+    /* Sidebar daralt/genişlet okları her zaman görünür ve tıklanabilir */
+    [data-testid="stSidebarCollapsedControl"], [data-testid="collapsedControl"],
+    [data-testid="stExpandSidebarButton"], [data-testid="stSidebarCollapseButton"] {
+        display: flex !important; visibility: visible !important; opacity: 1 !important;
+        z-index: 999 !important; color: #e2e8f0 !important;
+    }
+    [data-testid="stSidebarCollapsedControl"] button, [data-testid="collapsedControl"] button,
+    [data-testid="stExpandSidebarButton"] button {
+        background: rgba(17, 20, 42, 0.85) !important;
+        border: 1px solid var(--mx-border) !important;
+        border-radius: 10px !important;
+    }
+
+    /* ── Zemin: mesh gradyan + nokta ızgara ── */
+    .stApp {
+        background-color: #070a17 !important;
+        background-image:
+            radial-gradient(900px 500px at 85% -5%, rgba(139, 92, 246, 0.16), transparent 55%),
+            radial-gradient(800px 460px at -5% 30%, rgba(99, 102, 241, 0.13), transparent 55%),
+            radial-gradient(700px 500px at 60% 110%, rgba(34, 211, 238, 0.09), transparent 55%),
+            radial-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px) !important;
+        background-size: auto, auto, auto, 26px 26px !important;
+        background-attachment: fixed !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+    .block-container { padding-top: 1.2rem; max-width: 1480px; animation: mx-fade .45s ease; }
+    @keyframes mx-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    /* ── Tipografi: başlıklar Space Grotesk + vurgu çubuğu ── */
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif !important; letter-spacing: .2px; }
+    .block-container h3 { position: relative; padding-left: 15px; }
+    .block-container h3::before {
+        content: ""; position: absolute; left: 0; top: 7px; bottom: 7px; width: 4px;
+        border-radius: 2px; background: linear-gradient(180deg, var(--mx-accent), var(--mx-cyan));
+    }
+
+    /* ── İnce kayan çubuk ── */
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.30); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.55); }
+
+    /* ── İçerik kutuları: glass kart sistemi ── */
+    .info-box { padding: 20px; margin: 10px 0; }
+    .weather-box { padding: 18px; margin: 10px 0; }
+    .signal-box { padding: 18px; margin: 10px 0; }
+    .report-box { padding: 22px; margin: 12px 0; }
+    .model-card, .model-card-selected { padding: 18px; margin: 8px 0; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+    .route-box { padding: 18px; margin: 10px 0; }
+    .co2-box { padding: 18px; margin: 10px 0; }
+    .ground-truth-box { padding: 18px; margin: 10px 0; }
+    .prediction-box { padding: 18px; margin: 10px 0; }
+    .compare-table { padding: 16px; margin: 12px 0; }
+
+    .info-box, .weather-box, .signal-box, .report-box, .model-card,
+    .model-card-selected, .route-box, .co2-box, .ground-truth-box,
+    .prediction-box, .compare-table {
+        background: var(--mx-card) !important;
+        border: 1px solid var(--mx-border) !important;
+        border-radius: 18px !important;
+        backdrop-filter: blur(14px);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 32px rgba(0, 0, 0, 0.38);
+        transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .info-box:hover, .weather-box:hover, .signal-box:hover, .report-box:hover,
+    .route-box:hover, .co2-box:hover, .prediction-box:hover {
+        transform: translateY(-2px);
+        border-color: var(--mx-border-hover) !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 16px 44px rgba(0, 0, 0, 0.5);
+    }
+    .co2-box, .ground-truth-box { border-left: 3px solid #34d399 !important; }
+    .weather-box { border-left: 3px solid #38bdf8 !important; }
+    .signal-box  { border-left: 3px solid var(--mx-accent2) !important; }
+    .route-box   { border-left: 3px solid #fb923c !important; }
+    .prediction-box, .model-card-selected {
+        border-left: 3px solid var(--mx-accent) !important;
+        box-shadow: 0 0 26px rgba(99, 102, 241, 0.28);
+    }
+
+    /* ── st.metric kartları (harita yan paneli vb.) ── */
+    div[data-testid="stMetric"] {
+        background: var(--mx-card) !important;
+        border: 1px solid var(--mx-border) !important;
+        border-radius: 16px !important;
+        backdrop-filter: blur(10px);
+        position: relative; overflow: hidden;
+        padding: 14px 18px !important;
+        transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    div[data-testid="stMetric"]::before {
+        content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+        background: linear-gradient(180deg, var(--mx-accent), var(--mx-cyan));
+    }
+    div[data-testid="stMetric"]:hover {
+        transform: translateY(-3px);
+        border-color: var(--mx-border-hover) !important;
+        box-shadow: 0 12px 32px rgba(99, 102, 241, 0.20);
+    }
+    div[data-testid="stMetric"] [data-testid="stMetricValue"] {
+        font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+        background: linear-gradient(90deg, #ffffff, #a5b4fc);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Sidebar ── */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #0a0c1d 0%, #0d1024 100%) !important;
+        border-right: 1px solid var(--mx-border) !important;
+    }
+
+    /* ── Sekmeler: yüzen (sticky) nav bar ── */
+    .stTabs [data-baseweb="tab-list"] {
+        position: sticky; top: 8px; z-index: 60;
+        gap: 6px !important;
+        background: rgba(9, 11, 24, 0.88) !important;
+        backdrop-filter: blur(16px);
+        border: 1px solid var(--mx-border);
+        border-radius: 16px !important; padding: 6px !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 11px !important;
+        font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+        font-weight: 600; color: var(--mx-muted);
+        transition: all .2s ease;
+    }
+    .stTabs [data-baseweb="tab"]:hover { background: rgba(99, 102, 241, 0.12); color: var(--mx-text); }
+    .stTabs [aria-selected="true"] {
+        background: linear-gradient(135deg, var(--mx-accent), var(--mx-accent2)) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 16px rgba(99, 102, 241, 0.45);
+    }
+    .stTabs [data-baseweb="tab-highlight"], .stTabs [data-baseweb="tab-border"] { background: transparent !important; }
+
+    /* ── Radio → segment kontrol ── */
+    div[role="radiogroup"] > label {
+        padding: 7px 12px !important; border-radius: 10px !important;
+        border: 1px solid transparent; width: 100%;
+        transition: all .15s ease; margin: 2px 0 !important;
+    }
+    div[role="radiogroup"] > label:hover { background: rgba(99, 102, 241, 0.10); }
+    div[role="radiogroup"] > label:has(input:checked) {
+        background: rgba(99, 102, 241, 0.16);
+        border-color: rgba(99, 102, 241, 0.45);
+    }
+
+    /* ── Butonlar ── */
+    .stButton > button, .stDownloadButton > button {
+        border-radius: 12px !important;
+        border: 1px solid var(--mx-border) !important;
+        background: rgba(17, 20, 42, 0.7) !important;
+        color: var(--mx-text) !important; font-weight: 600;
+        transition: all .2s ease;
+    }
+    .stButton > button:hover, .stDownloadButton > button:hover {
+        border-color: var(--mx-accent) !important;
+        box-shadow: 0 0 18px rgba(99, 102, 241, 0.40);
+        transform: translateY(-1px); color: #ffffff !important;
+    }
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, var(--mx-accent), var(--mx-accent2)) !important;
+        border: none !important; color: #fff !important;
+    }
+
+    /* ── Girdiler ── */
+    div[data-baseweb="select"] > div {
+        background-color: rgba(17, 20, 42, 0.75) !important;
+        border-radius: 10px !important;
+    }
+    .stTextInput input, .stNumberInput input {
+        background-color: rgba(17, 20, 42, 0.75) !important;
+        border-radius: 10px !important;
+    }
+    [data-testid="stFileUploaderDropzone"] {
+        background: rgba(17, 20, 42, 0.55) !important;
+        border: 1px dashed var(--mx-border) !important;
+        border-radius: 14px !important;
+    }
+
+    /* ── Uyarılar, expander, tablolar ── */
+    [data-testid="stAlert"] { border-radius: 14px !important; backdrop-filter: blur(10px); }
+    [data-testid="stExpander"] {
+        border: 1px solid var(--mx-border) !important;
+        border-radius: 14px !important;
+        background: rgba(13, 16, 32, 0.5);
+    }
+    [data-testid="stDataFrame"] {
+        border: 1px solid var(--mx-border);
+        border-radius: 14px; overflow: hidden;
+    }
+
+    hr { border-color: rgba(99, 102, 241, 0.14) !important; }
+
+    /* ── Dil değiştirme bayrak butonları ── */
+    [data-testid="stHorizontalBlock"] [data-testid="column"] .stButton > button[data-testid*="lang_"] {
+        font-size: 1.3em !important;
+        padding: 4px 8px !important;
+        border-radius: 10px !important;
+        background: rgba(17, 20, 42, 0.5) !important;
+        border: 1px solid var(--mx-border) !important;
+        transition: all .2s ease;
+        line-height: 1.4;
+    }
+    [data-testid="stHorizontalBlock"] [data-testid="column"] .stButton > button[data-testid*="lang_"]:hover {
+        border-color: rgba(99, 102, 241, 0.6) !important;
+        background: rgba(99, 102, 241, 0.15) !important;
+        transform: scale(1.1);
+        box-shadow: 0 0 14px rgba(99, 102, 241, 0.35);
+    }
+
+    /* ── Hero üstündeki akan gradyan şerit ── */
+    @keyframes mx-flow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+    .mx-hero-bar {
+        height: 3px;
+        background: linear-gradient(90deg, #6366f1, #22d3ee, #8b5cf6, #6366f1);
+        background-size: 200% 100%;
+        animation: mx-flow 6s linear infinite;
+    }

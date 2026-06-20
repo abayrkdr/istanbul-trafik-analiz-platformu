@@ -1,0 +1,87 @@
+# ──────────────────────────────────────────────
+#  İstanbul Trafik Platformu — .gitignore
+# ──────────────────────────────────────────────
+
+# ── Büyük veri setleri (Git LFS veya harici depo kullanın) ──
+data_parquet/
+dataset/
+testdata/
+
+# ── Video dosyaları ──────────────────────────
+testvideos/
+kayitlar/
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.ts
+
+# ── YOLO ağırlıkları (ultralytics otomatik indirir) ─
+yolo11*.pt
+*.pt
+*.onnx
+*.engine
+
+# ── Büyük eğitilmiş modeller (train_models.py ile yeniden üretin) ──
+models/random_forest.pkl
+models/xgboost.pkl
+models/gradient_boosting.pkl
+
+# ── Python önbelleği ─────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── Sanal ortamlar ───────────────────────────
+.venv/
+venv/
+env/
+.env
+ENV/
+
+# ── Paket derleme artıkları ──────────────────
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+MANIFEST
+
+# ── İşletim sistemi dosyaları ────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── IDE / Editör ─────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+
+# ── Günlük ve geçici dosyalar ────────────────
+*.log
+*.tmp
+*.bak
+*.cache
+
+# ── Jupyter ──────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Streamlit ────────────────────────────────
+# config.toml dahil edilir (.streamlit/ klasörü paylaşılır)
+
+# ── pytest / coverage ────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
