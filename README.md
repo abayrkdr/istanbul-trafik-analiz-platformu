@@ -67,8 +67,8 @@
 ### 1. Depoyu Klonla
 
 ```bash
-git clone https://github.com/KULLANICI_ADI/istanbul-trafik-platformu.git
-cd istanbul-trafik-platformu
+git clone https://github.com/abayrkdr/istanbul-trafik-analiz-platformu.git
+cd istanbul-trafik-analiz-platformu
 ```
 
 ### 2. Sanal Ortam Oluştur ve Bağımlılıkları Yükle
