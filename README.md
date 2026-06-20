@@ -3,8 +3,8 @@
 > İBB Açık Veri Seti (2020–2025) üzerinde derin öğrenme ile trafik analizi, tahmini ve gerçek zamanlı kamera analizi.
 
 <p align="center">
-  <img src="görseller/model_comparison.png" alt="Model Karşılaştırma" width="48%"/>
-  <img src="görseller/training_loss.png" alt="Eğitim Kaybı" width="48%"/>
+  <img src="g%C3%B6rseller/model_comparison.png" alt="Model Karşılaştırma" width="48%"/>
+  <img src="g%C3%B6rseller/training_loss.png" alt="Eğitim Kaybı" width="48%"/>
 </p>
 
 ---
@@ -12,6 +12,7 @@
 ## 📋 İçindekiler
 
 - [Özellikler](#-özellikler)
+- [Ekran Görüntüleri](#-ekran-görüntüleri)
 - [Mimari](#-mimari)
 - [Kurulum](#-kurulum)
 - [Kullanım](#-kullanım)
@@ -35,6 +36,47 @@
 | 📹 **Gerçek Zamanlı Analiz** | YOLOv11 ile canlı kamera / video akışı araç sayımı |
 | 📍 **İBB Kamera** | İBB Trafik Haritasından HLS yayını yakalama ve analiz |
 | 💾 **Veri Yöneticisi** | Parquet dosyaları görüntüleme, CSV append, yedekleme |
+
+---
+
+## 🖼️ Ekran Görüntüleri
+
+### Ana Sayfa — Özet Dashboard
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_pkpRzrBHYY.png" alt="Ana Sayfa Dashboard" width="100%"/>
+</p>
+
+### 🗺️ Trafik Yoğunluk Haritası
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_jIOy35k71G.png" alt="Yoğunluk Haritası" width="100%"/>
+</p>
+
+### 📈 Zaman Serisi & Rush Hour Analizi
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_VkLUWJolmu.png" alt="Zaman Serisi Analizi" width="49%"/>
+  <img src="g%C3%B6rseller/websitesi/brave_JR7O2hQG2u.png" alt="Hafta içi / Hafta Sonu & Rush Hour" width="49%"/>
+</p>
+
+### 📊 Yıl Karşılaştırma & Pandemi Etkisi
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_5rxX1TtqzA.png" alt="Yıl Karşılaştırma ve Pandemi Etkisi" width="100%"/>
+</p>
+
+### 🔮 YZ Tahmin & Model Karşılaştırma
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_mmh3thQKif.png" alt="YZ Tahmin Paneli" width="100%"/>
+</p>
+
+### 🗺️ Rota Optimizasyonu
+
+<p align="center">
+  <img src="g%C3%B6rseller/websitesi/brave_RSfn5FwKf0.png" alt="Rota Optimizasyonu" width="100%"/>
+</p>
 
 ---
 
